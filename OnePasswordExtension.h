@@ -165,10 +165,12 @@ typedef void (^OnePasswordExtensionItemCompletionBlock)(NSExtensionItem * __null
  @param sender The sender which triggers the share sheet to show. UIButton, UIBarButtonItem or UIView. Can also be nil on iPhone, but not on iPad.
  
  @param yesOrNo Boolean flag. If YES is passed only matching Login items will be shown, otherwise the 1Password Extension will also display Credit Cards and Identities.
- 
+
+ @param overrideURLString Optional URL string that will be used instead of the webview's URL to find matching logins.
+
  @param completion Completion block called on completion with parameters success, and error. The success reply parameter that is YES if the 1Password Extension has been successfully completed or NO otherwise. The error reply parameter that is nil if the 1Password Extension has been successfully completed, or it contains error information about the completion failure.
  */
-- (void)fillItemIntoWebView:(nonnull id)webView forViewController:(nonnull UIViewController *)viewController sender:(nullable id)sender showOnlyLogins:(BOOL)yesOrNo completion:(nonnull OnePasswordSuccessCompletionBlock)completion;
+- (void)fillItemIntoWebView:(nonnull id)webView forViewController:(nonnull UIViewController *)viewController sender:(nullable id)sender showOnlyLogins:(BOOL)yesOrNo overrideURLString:(nullable NSString *)overrideURLString completion:(nonnull OnePasswordSuccessCompletionBlock)completion;
 
 /*!
  Called in the UIActivityViewController completion block to find out whether or not the user selected the 1Password Extension activity.

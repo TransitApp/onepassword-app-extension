@@ -68,7 +68,7 @@
 #pragma mark - Actions
 
 - (IBAction)fillUsing1Password:(id)sender {
-	[[OnePasswordExtension sharedExtension] fillItemIntoWebView:self.webView forViewController:self sender:sender showOnlyLogins:NO completion:^(BOOL success, NSError *error) {
+    [[OnePasswordExtension sharedExtension] fillItemIntoWebView:self.webView forViewController:self sender:sender showOnlyLogins:NO overrideURLString:nil completion:^(BOOL success, NSError *error) {
 		if (!success) {
 			NSLog(@"Failed to fill into webview: <%@>", error);
 		}
